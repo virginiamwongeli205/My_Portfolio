@@ -1,10 +1,26 @@
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 const Contact = () => {
+  const [success, setSuccess] = useState(false);
+  const [formKey, setFormKey] = useState(0); // used to reset form
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // show success message
+    setSuccess(true);
+
+    // reset form by changing key
+    setFormKey((prev) => prev + 1);
+
+    // hide message after 3 seconds
+    setTimeout(() => setSuccess(false), 3000);
+  };
+
   return (
     <section id="contact" className="py-20 bg-[#0A0A0A] text-white">
       <div className="max-w-5xl mx-auto px-6">
-
         {/* TITLE */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-3">
@@ -17,6 +33,8 @@ const Contact = () => {
 
         {/* FORM */}
         <motion.form
+          key={formKey}
+          onSubmit={handleSubmit}
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7 }}
@@ -82,6 +100,12 @@ const Contact = () => {
           </div>
         </motion.form>
 
+        {/* SUCCESS MESSAGE */}
+        {success && (
+          <p className="text-[#39FF14] text-center mt-6">
+            Message submitted successfully!
+          </p>
+        )}
       </div>
     </section>
   );
