@@ -10,7 +10,6 @@ const Header = () => {
   return (
     <header className="fixed w-full top-0 z-50 bg-[#0A0A0A]/80 backdrop-blur-md border-b border-[#1F1F1F]">
       <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-
         {/* LOGO */}
         <h1 className="text-xl font-bold text-white">
           <span className="text-[#39FF14]">V</span>irginia
@@ -25,7 +24,7 @@ const Header = () => {
               className="text-[#A1A1AA] hover:text-[#39FF14] transition duration-300 relative group"
             >
               {link}
-              <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[#39FF14] transition-all group-hover:w-full"></span>
+              <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-[#39FF14] transition-all group-hover:w-full"></span>
             </a>
           ))}
         </nav>
@@ -33,7 +32,7 @@ const Header = () => {
         {/* CTA BUTTON */}
         <div className="hidden md:block">
           <button className="px-5 py-2 rounded-lg bg-[#39FF14] text-black font-semibold hover:shadow-[0_0_15px_#39FF14] transition duration-300">
-            Hire Me
+            <a href="#contact">Hire Me</a>
           </button>
         </div>
 
